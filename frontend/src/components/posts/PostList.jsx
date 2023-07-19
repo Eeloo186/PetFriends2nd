@@ -11,7 +11,7 @@ const PostListBlock = styled(Responsive)`
   flex-wrap: wrap;
   justify-content: center;
 `;
-const PostList = ({ posts, boardName, loading }) => {
+const PostList = ({ posts, boardName, loading }) => {  
   return (
     <>
       {/* 로딩중... 부분 추후 loading spiiner 이미지로 대체 */}

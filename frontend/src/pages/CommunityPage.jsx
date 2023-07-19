@@ -5,10 +5,11 @@ import PostButtonContainer from '../containers/posts/PostButtonContainer';
 import PostListContainer from '../containers/posts/PostListContainer';
 import PaginationContainer from '../containers/common/PaginationContainer';
 import ApiContainer from '../containers/api/ApiContainer';
-
+import HeaderContainer from '../containers/common/HeaderContainer';
 const CommunityPage = () => {
   return (
     <>
+      <HeaderContainer />
       <SearchOptionMenuContainer></SearchOptionMenuContainer>
       <SortOptionMenuContainer></SortOptionMenuContainer>
       <PaginationContainer />

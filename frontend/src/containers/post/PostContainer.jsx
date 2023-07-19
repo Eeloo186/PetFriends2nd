@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import Post from '../../components/post/Post';
 import { useDispatch, useSelector } from 'react-redux';
 import { getPostAsync, initPost } from '../../modules/post';

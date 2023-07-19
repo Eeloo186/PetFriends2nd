@@ -106,12 +106,12 @@ const Popularpost = ({ pupularPosts, theme }) => {
         </ListBox>
 
         <ol>
-          {pupularPosts?.map((post) => (
+          {pupularPosts?.map((post) => (            
             <Postlist key={post.id} theme={String(theme)}>
               <MdOutlineLocalFireDepartment />
               <div className="postView">{post.view}</div>
               <div className="postInfo">
-                <span className="title">{post.title}</span>
+                <span className="title">{post.CommunityInfo.itle}</span>
               </div>
             </Postlist>
           ))}

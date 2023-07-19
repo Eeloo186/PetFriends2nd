@@ -14,7 +14,7 @@ const session = require('express-session');
 const app = express();
 
 // port set
-app.set('port', process.env.PORT || 8001);
+app.set('port', 3030);
 
 // .env
 dotenv.config();

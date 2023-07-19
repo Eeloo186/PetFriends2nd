@@ -7,7 +7,7 @@ import PictureContainer from '../containers/post/PictureContainer';
 import PostContainer from '../containers/post/PostContainer';
 import CommentListContainer from '../containers/comment/CommentListContainer';
 import CommentInputContainer from '../containers/comment/CommentInputContainer';
-
+import HeaderContainer from '../containers/common/HeaderContainer';
 const PostDetailPage = () => {
   const location = useLocation();
   const params = useParams();
@@ -15,13 +15,16 @@ const PostDetailPage = () => {
   const boardName = location.pathname.split('/')[1];
   // 사진글 상세 정보 페이지, 나머지 게시글 상세 정보 페이지 구분
   return (
-    <Responsive>
+    <>
+    <HeaderContainer />
+    <Responsive>      
       {boardName === 'picture' ? <PictureContainer postId={postId} /> : <PostContainer postId={postId} />}
       <TagContainer />
       <ActionButtonContainer />
       <CommentInputContainer></CommentInputContainer>
       <CommentListContainer></CommentListContainer>
     </Responsive>
+    </>
   );
 };
 

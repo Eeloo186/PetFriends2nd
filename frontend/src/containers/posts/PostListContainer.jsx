@@ -5,9 +5,8 @@ import { getPostsAsync } from '../../modules/posts';
 import { useLocation } from 'react-router-dom';
 import { selectPageNumber, selectSearchOptions, selectSortType, selectTag } from '../../modules/searchOption';
 
-const PostListContainer = () => {
+const PostListContainer = () => { 
   const location = useLocation();
-
   const searchCategory = useSelector((state) => state.searchOption.searchCategory);
   const searchKeyword = useSelector((state) => state.searchOption.searchKeyword);
   const sortType = useSelector((state) => state.searchOption.sortType);
@@ -20,11 +19,10 @@ const PostListContainer = () => {
 
   const limit = useRef(10);
   const dispatch = useDispatch();
-
+  console.log('posts===>',posts);
   // post list 렌더링, 리렌더링
   useEffect(() => {
     if (searchCategory === null && searchKeyword === null && sortType === null && currPageNum === null) {
-      console.log('SearchOptionMenuContainer 첫 렌더링. 초기화 시작.');
       dispatch(selectSortType('newest'));
       dispatch(selectPageNumber(1));
       dispatch(selectSearchOptions({ searchCategory: 'titleDetail', searchKeyword: '' }));

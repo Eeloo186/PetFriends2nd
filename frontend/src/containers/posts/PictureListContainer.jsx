@@ -13,7 +13,7 @@ const PictureListContainer = () => {
   // 2. boardId or boardName : 특정 컴포넌트 내부이므로 수동으로 지정.
   // 3. limit : 화면의 사이즈와 사진div 크기에 따라서 유동적으로 결정.
   const posts = useSelector((state) => state.posts.posts);
-  const sortType = useSelector((state) => state.sort.sortType);
+  const sortType = useSelector((state) => state.searchOption.sortType);
   const searchCategory = useSelector((state) => state.searchOption.searchCategory);
   const searchKeyword = useSelector((state) => state.searchOption.searchKeyword);
   const loading = useSelector((state) => state.loading['posts/GET_POSTS']);

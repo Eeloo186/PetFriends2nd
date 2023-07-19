@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "edurootroot",
-    "database": "test",
+    "database": "test2",
     "host": "192.168.10.47",
     "dialect": "mysql"
   },
