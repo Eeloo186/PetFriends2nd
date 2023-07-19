@@ -13,7 +13,7 @@ const PostListContainer = () => {
   const currPageNum = useSelector((state) => state.searchOption.pageNumber);
   const tag = useSelector((state) => state.searchOption.tag);
   const boardName = location.pathname.split('/')[1];
-
+  console.log('boardName===>', boardName);
   const posts = useSelector((state) => state.posts.posts);
   const loading = useSelector((state) => state.loading['posts/GET_POSTS']);
 
