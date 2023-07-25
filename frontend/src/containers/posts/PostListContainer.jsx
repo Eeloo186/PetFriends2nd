@@ -3,7 +3,7 @@ import PostList from '../../components/posts/PostList';
 import { useDispatch, useSelector } from 'react-redux';
 import { getPostsAsync } from '../../modules/posts';
 import { useLocation } from 'react-router-dom';
-import { selectPageNumber, selectSearchOptions, selectSortType, selectTag } from '../../modules/searchOption';
+import { selectPageNumber, selectSearchOptions, selectSortType } from '../../modules/searchOption';
 
 const PostListContainer = () => { 
   const location = useLocation();
@@ -13,13 +13,11 @@ const PostListContainer = () => {
   const currPageNum = useSelector((state) => state.searchOption.pageNumber);
   const tag = useSelector((state) => state.searchOption.tag);
   const boardName = location.pathname.split('/')[1];
-  console.log('boardName===>', boardName);
   const posts = useSelector((state) => state.posts.posts);
   const loading = useSelector((state) => state.loading['posts/GET_POSTS']);
-
+  const likes = useSelector((state) => state.like.likes);
   const limit = useRef(10);
-  const dispatch = useDispatch();
-  console.log('posts===>',posts);
+  const dispatch = useDispatch();  
   // post list 렌더링, 리렌더링
   useEffect(() => {
     if (searchCategory === null && searchKeyword === null && sortType === null && currPageNum === null) {
@@ -60,6 +58,13 @@ const PostListContainer = () => {
     //   dispatch(selectTag(null));
     // };
   }, [boardName, dispatch]);
+
+  useEffect(() => {
+    return () => {
+      console.log('postlistContainer 빠져나감');
+      dispatch(unloadPosts());
+    };
+  }, []);
 
   return <PostList posts={posts} boardName={boardName} loading={loading}></PostList>;
 };

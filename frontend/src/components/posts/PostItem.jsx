@@ -4,15 +4,6 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { AiOutlineEye, AiOutlineComment, AiFillHeart } from 'react-icons/ai';
 
-// const PostItemBlock = styled.div`
-// display: flex;
-// border: 1px solid green;
-// width: 100%;
-// height: 100px;
-// margin: 0;
-// cursor: pointer;
-// `;
-
 const Wrapper = styled.div`
 width: 100%;
 margin: 15px;
@@ -44,7 +35,7 @@ const SecondBox = styled.div`
 display: flex;
 align-items: center;
 justify-content: space-between;
-
+border-bottom: 1px solid #111;
 & :nth-child(2) {
 font-size: 20px;
 }
@@ -75,17 +66,25 @@ box-sizing: content-box;
 } 
 `;
 
-const PostItem = ({ post, loading }) => {   
+const PostItem = ({ post, boardName}) => {     
 const date = new Date(post.createdAt); 
 const showDate = `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}`
 const theme = useSelector((state) => state.theme.theme);
 return (
 <>
 <Wrapper>
-<Link to={`/community/${post.id}`}>
+
+<Link to={`/${boardName}/${post.id}`}>
 <FirstBox theme={String(theme)}> 
-<div>{post.id}.</div>
-<div>{post.CommunityInfo.title}</div>
+    {boardName === 'community' ? (
+        <StyledSpan>{`타이틀 : ${post.CommunityDetail.title}`}</StyledSpan>
+        ) : boardName === 'information' ? (
+        <StyledSpan>{`타이틀 : ${post.InfoDetail.title}`}</StyledSpan>
+        ) : boardName === 'notice' ? (
+        <StyledSpan>{`타이틀 : ${post.NoticeDetail.title}`}</StyledSpan>
+        ) : (
+        '존재하지 않는 게시판'
+        )}
 </FirstBox>
 </Link>
 <SecondBox>
@@ -93,9 +92,8 @@ return (
 <div>{post.User.nickname}</div>
 <div>{showDate}</div> 
 <AiOutlineEye style={{ color: 'rgb(255, 140, 0)' }}/> {post.view} 
-<AiOutlineComment style={{ color: 'rgb(255, 140, 0)' }}/> {post.comment} 
+<AiFillHeart style={{ color: 'rgb(255, 140, 0)' }}/>{post && post.likeCount}
 </ThirdBox>
-<AiFillHeart style={{ color: 'rgb(255, 140, 0)' }}/>
 </SecondBox>
 </Wrapper>
 </>

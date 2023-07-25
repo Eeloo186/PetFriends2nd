@@ -111,7 +111,7 @@ const Popularpost = ({ pupularPosts, theme }) => {
               <MdOutlineLocalFireDepartment />
               <div className="postView">{post.view}</div>
               <div className="postInfo">
-                <span className="title">{post.CommunityInfo.itle}</span>
+                <span className="title">{post.CommunityInfo?.title}</span>
               </div>
             </Postlist>
           ))}
