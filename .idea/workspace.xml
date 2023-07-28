@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="1681da71-26c3-480d-9f48-ada7635080fa" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/admin/Admin/AdminPost.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/admin/Admin/AdminPost.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/admin/components/PostDetailsDialog.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/admin/components/PostDetailsDialog.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
